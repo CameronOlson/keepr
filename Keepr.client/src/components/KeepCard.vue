@@ -20,7 +20,7 @@
     <Modal :id="'keep-' + keep.id">
       <template #modal-title> </template>
       <template #modal-body>
-        <div>
+        <div class="bg-dark text-light">
           <div class="row">
             <div class="col-6">
               <img class="img-fluid" :src="keep.img" alt="" />
@@ -74,6 +74,7 @@
                 <div></div>
                 <div>
                   <router-link
+                    class="display-flex mx-3"
                     @click.stop="goToPage()"
                     :to="{ name: 'Profile', params: { id: keep.creatorId } }"
                   >

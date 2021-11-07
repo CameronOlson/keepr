@@ -1,6 +1,8 @@
 <template>
-  <div v-if="keeps" class="masonry">
-    <KeepCard v-for="k in keeps" :key="k.id" :keep="k" />
+  <div class="container-fluid bg-dark">
+    <div v-if="keeps" class="masonry">
+      <KeepCard v-for="k in keeps" :key="k.id" :keep="k" />
+    </div>
   </div>
 </template>
 

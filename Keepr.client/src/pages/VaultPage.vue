@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid bg-dark">
     <div class="row">
       <div class="col-12">
         <h1>{{ vault.name }}</h1>

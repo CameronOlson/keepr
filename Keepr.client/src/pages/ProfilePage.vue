@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid bg-dark">
     <div class="row pt-3">
       <div class="col-md-2 col-sm-12">
         <img :src="profile.picture" alt="" />
@@ -46,7 +46,7 @@
         </button>
       </div>
     </div>
-    <div v-if="keeps" class="masonry">
+    <div v-if="keeps" class="container display flex masonry">
       <ProfileKeepCard v-for="k in keeps" :key="k.id" :keep="k" />
     </div>
 
