@@ -6,14 +6,16 @@
         class="card bg-dark text-white selectable"
       >
         <img class="card-img" :src="keep.img" alt="Card image" />
-        <div class="card-img-overlay d-flex flex-column">
-          <div class="mt-auto">{{ keep.name }}</div>
-          <router-link
-            @click.stop
-            :to="{ name: 'Profile', params: { id: keep.creatorId } }"
-          >
-            <img class="small-pic" :src="keep.creator.picture" alt="" />
-          </router-link>
+        <div class="card-img-overlay d-flex">
+          <div class="mt-auto me-5 pe-3">{{ keep.name }}</div>
+          <div class="d-flex align-self-end ms-5">
+            <router-link
+              @click.stop
+              :to="{ name: 'Profile', params: { id: keep.creatorId } }"
+            >
+              <img class="small-pic" :src="keep.creator.picture" alt="" />
+            </router-link>
+          </div>
         </div>
       </div>
     </div>

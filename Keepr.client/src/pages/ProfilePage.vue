@@ -46,8 +46,10 @@
         </button>
       </div>
     </div>
-    <div v-if="keeps" class="container display flex masonry">
-      <ProfileKeepCard v-for="k in keeps" :key="k.id" :keep="k" />
+    <div v-if="keeps" class="row">
+      <div class="col masonry">
+        <ProfileKeepCard v-for="k in keeps" :key="k.id" :keep="k" />
+      </div>
     </div>
 
     <Modal id="add-keep">
@@ -114,12 +116,12 @@ export default {
 .masonry {
   columns: 4 200px;
   column-gap: 1rem;
-  // div {
-  //   width: 150px;
-  //   margin: 0 1rem 1rem 0;
-  //   display: inline-block;
-  //   width: 100%;
-  // }
+  div {
+    width: 150px;
+    margin: 0 1rem 1rem 0;
+    display: inline-block;
+    width: 100%;
+  }
 }
 .for-the-row {
   display: flex;

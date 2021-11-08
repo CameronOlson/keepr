@@ -6,7 +6,7 @@
         <h1>{{ vaultKeeps.length }}</h1>
         <div>
           <button
-            @click="deleteVault(vault.id)"
+            @click="deleteVault(vault.id, vault.creatorId)"
             class="btn btn-dark text-light"
           >
             Delete Vault
@@ -56,14 +56,15 @@ export default {
     return {
       router,
       route,
-      async deleteVault(vaultId) {
+      async deleteVault(vaultId, creatorId) {
         try {
           if (await Pop.confirm()) {
             await vaultsService.deleteVault(vaultId)
+            console.log(creatorId)
             Pop.toast('vault has been deleted')
             router.push({
               name: 'Profile',
-              params: { id: account.id }
+              params: { id: creatorId }
             })
           }
         } catch (error) {
