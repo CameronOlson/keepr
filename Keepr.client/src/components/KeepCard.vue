@@ -6,9 +6,9 @@
         class="card bg-dark text-white selectable"
       >
         <img class="card-img" :src="keep.img" alt="Card image" />
-        <div class="card-img-overlay d-flex">
-          <div class="mt-auto me-5 pe-3">{{ keep.name }}</div>
-          <div class="d-flex align-self-end ms-5">
+        <div class="card-img-overlay footer-name">
+          <div class="mt-auto shadow-text">{{ keep.name }}</div>
+          <div class="mt-auto">
             <router-link
               @click.stop
               :to="{ name: 'Profile', params: { id: keep.creatorId } }"
@@ -24,10 +24,10 @@
       <template #modal-body>
         <div class="bg-dark text-light">
           <div class="row">
-            <div class="col-6">
+            <div class="col-md-6 col-sm-12">
               <img class="img-fluid" :src="keep.img" alt="" />
             </div>
-            <div class="col-6">
+            <div class="col-md-6 col-sm-12">
               <div class="in-line">
                 <div>Shares: {{ keep.shares }}</div>
                 <div>Views: {{ keep.views }}</div>
@@ -64,30 +64,30 @@
                     />
                   </ul>
                 </div>
-
-                <div v-if="keep.creatorId == account.id">
-                  <button
-                    @click.prevent="deleteKeep()"
-                    class="btn btn-dark text-light"
-                  >
-                    Delete
-                  </button>
-                </div>
-                <div></div>
                 <div>
-                  <router-link
-                    class="display-flex mx-3"
-                    @click.stop="goToPage()"
-                    :to="{ name: 'Profile', params: { id: keep.creatorId } }"
-                  >
-                    <img
-                      class="small-picture"
-                      :src="keep.creator.picture"
-                      alt=""
-                    />
-                  </router-link>
+                  <div v-if="keep.creatorId == account.id">
+                    <button
+                      @click.prevent="deleteKeep()"
+                      class="btn btn-dark text-light"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                  <!-- link for keep creators profile -->
+                  <div>
+                    <router-link
+                      class="display-flex mx-3"
+                      @click.stop="goToPage()"
+                      :to="{ name: 'Profile', params: { id: keep.creatorId } }"
+                    >
+                      <img
+                        class="small-picture"
+                        :src="keep.creator.picture"
+                        alt=""
+                      />
+                    </router-link>
+                  </div>
                 </div>
-                <div>{{ keep.creator.name }}</div>
               </footer>
             </div>
           </div>
@@ -181,5 +181,12 @@ export default {
   height: 50px;
   width: 50px;
   border-radius: 50%;
+}
+.footer-name {
+  display: flex;
+  justify-content: space-between;
+}
+.shadow-text {
+  text-shadow: 1px 1px #000000;
 }
 </style>

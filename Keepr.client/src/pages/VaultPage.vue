@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid bg-dark">
+  <div class="container-fluid bg-dark tall">
     <div class="row">
       <div class="col-12">
         <h1>{{ vault.name }}</h1>
@@ -82,4 +82,7 @@ export default {
 
 
 <style lang="scss" scoped>
+.tall {
+  min-height: 43rem;
+}
 </style>

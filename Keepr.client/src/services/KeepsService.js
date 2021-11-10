@@ -41,11 +41,9 @@ class KeepsService{
     logger.log("update the views", res.data)
   }
 
-  async updateKeeps(keep){
-    keep.keeps = keep.keeps + 1
-    const res = await api.put('api/keeps/' + keep.id, keep)
-    let keepIndex = AppState.keeps.findIndex(k => k.id == keep.id)
-    AppState.keeps.splice(keepIndex, 1, new Keep(res.data))
+  async updateKeeps(data){
+    data.keeps = data.keeps + 1
+    const res = await api.put('api/keeps/' + data.id, data)
     logger.log("update the keeps", res.data)
   }
 }

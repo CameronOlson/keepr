@@ -38,10 +38,7 @@ namespace Keepr.Services
     internal Keep UpdateKeep(Keep updatedKeep)
     {
       Keep keep = GetKeepById(updatedKeep.Id);
-      if(keep.CreatorId != updatedKeep.CreatorId)
-      {
-        throw new Exception("this isn't yours");
-      }
+   
       keep.Name = updatedKeep.Name ?? keep.Name;
       keep.Description = updatedKeep.Description ?? keep.Description;
       keep.Views = updatedKeep.Views;

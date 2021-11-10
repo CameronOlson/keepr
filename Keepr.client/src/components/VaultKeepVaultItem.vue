@@ -35,7 +35,6 @@ export default {
       editable,
       async addKeepToVault() {
         try {
-          debugger
           await vaultKeepsService.postVaultKeep(editable.value)
           Pop.toast("This has been added to your vault")
         } catch (error) {

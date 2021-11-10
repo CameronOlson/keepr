@@ -7,7 +7,7 @@
       >
         <img class="card-img" :src="keep.img" alt="Card image" />
         <div class="card-img-overlay d-flex flex-column">
-          <div class="mt-auto">{{ keep.name }}</div>
+          <div class="mt-auto shadow-text">{{ keep.name }}</div>
         </div>
       </div>
     </div>
@@ -149,5 +149,8 @@ export default {
   height: 50px;
   width: 50px;
   border-radius: 50%;
+}
+.shadow-text {
+  text-shadow: 1px 1px #000000;
 }
 </style>
