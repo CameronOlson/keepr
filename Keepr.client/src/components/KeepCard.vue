@@ -103,9 +103,9 @@ import { computed, ref } from "@vue/reactivity"
 import { AppState } from "../AppState"
 import Pop from "../utils/Pop"
 import { keepsService } from "../services/KeepsService"
-import { onMounted } from "@vue/runtime-core"
+import { onMounted, watchEffect } from "@vue/runtime-core"
 import { vaultsService } from "../services/VaultsService"
-import { useRouter } from "vue-router"
+import { useRoute, useRouter } from "vue-router"
 import { Modal } from "bootstrap"
 export default {
   props: {
@@ -115,8 +115,13 @@ export default {
     }
   },
   setup(props) {
-
+    const route = useRoute()
     const router = useRouter()
+    watchEffect(async () => {
+      if (route.params.id) {
+        await vaultsService.getVaultsByProfileId(accountId)
+      }
+    })
     return {
       async deleteKeep() {
         try {
